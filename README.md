@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-BACKEND Part is under YksKocluk folder.
+**BACKEND Part is under YksKocluk folder.**
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
