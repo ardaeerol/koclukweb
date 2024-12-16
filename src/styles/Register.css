@@ -1,0 +1,55 @@
+/* src/styles/Register.css */
+.register-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.register-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.register-container .error {
+    color: red;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.register-container form div {
+    margin-bottom: 1rem;
+}
+
+.register-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.register-container input,
+.register-container select,
+.register-container textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.register-container button {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.register-container button:hover {
+    background: var(--secondary-color);
+}

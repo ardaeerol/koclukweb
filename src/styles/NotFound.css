@@ -1,0 +1,35 @@
+/* src/styles/NotFound.css */
+.not-found-container {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.not-found-container h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.not-found-container p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.not-found-container button {
+    background: var(--secondary-color);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.not-found-container button:hover {
+    background: var(--primary-color);
+}

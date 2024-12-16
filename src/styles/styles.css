@@ -1,0 +1,211 @@
+/* src/styles/styles.css */
+
+/* Var olan CSS içeriğiniz burada olacak */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #3b82f6;
+    --accent-color: #60a5fa;
+    --background-color: #f8fafc;
+    --text-color: #1e293b;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Genel stiller */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header ve navigasyon */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+nav a.home-link {
+    background-color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+nav a.home-link:before {
+    content: "🏠";
+    font-size: 1.2em;
+}
+
+/* Ana içerik bölümleri */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Butonlar */
+button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+}
+
+button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.error {
+    color: red;
+    margin-bottom: 1rem;
+}
+
+/* Diğer özel stiller */
+.coach-list, .coach-profile, .booking-container, .messaging-container, .profile-management, .coach-chat, .admin-dashboard, .coach-management, .content-management, .admin-reports {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+.booking-management {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .booking-management h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  .booking-management table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .booking-management th, .booking-management td {
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .booking-management th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+  }
+  
+  .booking-management tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .booking-management .status {
+    font-weight: bold;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    color: white;
+  }
+  
+  .booking-management .status.confirmed {
+    background-color: #28a745; /* Green */
+  }
+  
+  .booking-management .status.cancelled {
+    background-color: #dc3545; /* Red */
+  }
+  
+  .booking-management .status.pending {
+    background-color: #ffc107; /* Orange */
+  }
+  
+  .booking-management button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .booking-management button:hover {
+    opacity: 0.9;
+  }
+  
+  .booking-management button:first-of-type {
+    background-color: #28a745; /* Green for confirm */
+    margin-right: 0.5rem;
+  }
+  
+  .booking-management button:last-of-type {
+    background-color: #dc3545; /* Red for cancel */
+  }
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.table th {
+    background-color: var(--secondary-color);
+    color: white;
+}
