@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+<changeSet id="1_fill_data" author="arda_erol">
+    <sql>
+        INSERT INTO users (Username, Password, Email, Role, FullName, PhoneNumber, CreatedAt)
+        VALUES ('testuser', '123456', 'testuser@example.com', 'student', 'Test User', '1234567890', CURRENT_TIMESTAMP);
+        INSERT INTO users (Username, Password, Email, Role, FullName, PhoneNumber, CreatedAt)
+        VALUES
+            ('student1', 'password123', 'student1@example.com', 'student', 'Student One', '1234567890', CURRENT_TIMESTAMP),
+            ('coach1', 'password123', 'coach1@example.com', 'coach', 'Coach One', '1234567891', CURRENT_TIMESTAMP),
+            ('admin1', 'password123', 'admin1@example.com', 'admin', 'Admin One', '1234567892', CURRENT_TIMESTAMP);
+        INSERT INTO users (Username, Password, Email, Role, FullName, PhoneNumber, CreatedAt)
+        VALUES ('admin2', 'password456', 'admin2@example.com', 'admin', 'Admin User 2', '555-1234567', NOW());
+
+        INSERT INTO students (UserID, StudySchedule)
+        VALUES
+            (1, 'Monday: Math 10:00-12:00\nWednesday: Physics 14:00-16:00'),
+            (2, 'Tuesday: Chemistry 11:00-13:00\nThursday: Biology 15:00-17:00');
+
+        INSERT INTO coaches (UserID, Biography, EducationDetails, Expertise, Availability, Rating)
+        VALUES
+            (3, 'Experienced physics coach.', 'PhD in Physics', 'Physics', 'Monday, Wednesday 10:00-15:00', 4.8),
+            (4, 'Mathematics tutor with 10+ years of experience.', 'MSc in Mathematics', 'Mathematics', 'Tuesday, Thursday 12:00-16:00', 4.5);
+
+        INSERT INTO admins (UserID)
+        VALUES
+            (5);
+
+        INSERT INTO bookings (StudentID, CoachID, BookingDate, Status)
+        VALUES
+            (1, 1, '2024-12-10 10:00:00', 'PENDING'),
+            (2, 2, '2024-12-11 14:00:00', 'CONFIRMED');
+
+        INSERT INTO chats (BookingID, SenderID, Message, SentAt)
+        VALUES
+            (1, 1, 'Hello Coach, I need help with my homework.', DEFAULT),
+            (1, 2, 'Sure, let’s start with the basics.', DEFAULT),
+            (2, 2, 'Hi Student, are you ready for the session?', DEFAULT),
+            (2, 1, 'Yes, I am ready!', DEFAULT);
+
+    </sql>
+</changeSet>
+</databaseChangeLog>

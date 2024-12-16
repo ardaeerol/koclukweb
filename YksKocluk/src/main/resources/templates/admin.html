@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Paneli - KoclukWeb</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <div class="logo">KoclukWeb</div>
+    <nav>
+        <a href="/">Ana Sayfa</a>
+        <a href="/admin/manageCoaches">Koç Yönetimi</a>
+        <a href="/admin/manageContent">İçerik Yönetimi</a>
+        <a href="/admin/reports">Raporlar</a>
+        <a href="/logout">Çıkış Yap</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Admin Paneli</h1>
+
+    <section class="admin-dashboard">
+        <div class="dashboard-card">
+            <h2>Koç Yönetimi</h2>
+            <button onclick="window.location.href='/admin/manageCoaches'" class="admin-btn">Koçları Yönet</button>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>İçerik Yönetimi</h2>
+            <button onclick="window.location.href='/admin/manageContent'" class="admin-btn">İçeriği Yönet</button>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>Raporlar</h2>
+            <button onclick="window.location.href='/admin/reports'" class="admin-btn">Raporları Görüntüle</button>
+        </div>
+    </section>
+
+    <section class="system-health">
+        <h2>Sistem Durumu</h2>
+        <button id="getDataBtn">Sistem Durumunu Kontrol Et</button>
+        <div id="result"></div>
+    </section>
+</main>
+
+<script type="text/javascript" src="/js/admin.js"></script>
+</body>
+</html>

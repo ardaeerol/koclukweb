@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Öğrenci Paneli</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+  <div class="logo">KoclukWeb</div>
+  <nav>
+    <a href="/">Ana Sayfa</a>
+    <a href="admin">Admin</a>
+    <a href="coach">Koç Girişi</a>
+    <a href="/logout">Çıkış Yap</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Öğrenci Paneli</h1>
+
+  <section class="student-dashboard">
+    <div class="dashboard-card">
+      <h2>Koç Arama</h2>
+      <button id="listCoachesBtn" class="student-btn">Koçları Listele</button>
+      <button id="filterCoachesBtn" class="student-btn">Filtreleme</button>
+      <div id="coachesList"></div>
+    </div>
+
+    <div class="dashboard-card">
+      <h2>Derslerim</h2>
+      <button id="viewScheduleBtn" class="student-btn">Program Görüntüle</button>
+      <button id="messagesBtn" class="student-btn">Mesajlar</button>
+      <div id="scheduleView"></div>
+    </div>
+  </section>
+
+  <section class="system-health">
+    <h2>Sistem Durumu</h2>
+    <button id="getDataBtn">Sistem Durumunu Kontrol Et</button>
+    <div id="result"></div>
+  </section>
+</main>
+
+<script type="text/javascript" src="/js/student.js"></script>
+</body>
+</html>

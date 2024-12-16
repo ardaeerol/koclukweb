@@ -1,0 +1,53 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Koç Paneli - KoclukWeb</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <div class="logo">KoclukWeb</div>
+    <nav>
+        <a href="/">Ana Sayfa</a>
+        <a href="/admin">Admin</a>
+        <a href="/coach/profile">Profilim</a>
+        <a href="/logout">Çıkış Yap</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Koç Paneli</h1>
+
+    <section class="coach-dashboard">
+        <div class="dashboard-card">
+            <h2>Profil Yönetimi</h2>
+            <button id="editProfileBtn" class="coach-btn">Profili Düzenle</button>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>Randevu Talepleri</h2>
+            <button id="viewBookingsBtn" class="coach-btn">Randevuları Görüntüle</button>
+            <div id="bookingsList"></div>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>Mesajlar</h2>
+            <button id="viewMessagesBtn" class="coach-btn">Mesajları Görüntüle</button>
+            <div id="messagesList"></div>
+        </div>
+    </section>
+
+    <section class="system-health">
+        <h2>Sistem Durumu</h2>
+        <button id="getDataBtn">Sistem Durumunu Kontrol Et</button>
+        <div id="result"></div>
+    </section>
+</main>
+
+<script type="text/javascript" src="/js/coach.js"></script>
+</body>
+</html>

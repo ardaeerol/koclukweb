@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="0-create-Database" author="arda_erol">
+        <sql>
+            -- Veritabanı oluşturuluyor
+            CREATE DATABASE IF NOT EXISTS YKSPlatform;
+
+            -- Veritabanı kullanılıyor
+                    USE YKSPlatform;
+        </sql>
+    </changeSet>
+
+    <changeSet id="1-create-table" author="arda_erol">
+        <sql>
+            -- users Tablosu
+            CREATE TABLE IF NOT EXISTS users (
+                                                 UserID BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                                 Username VARCHAR(50) NOT NULL UNIQUE,
+                Password VARCHAR(255) NOT NULL,
+                Email VARCHAR(100) NOT NULL UNIQUE,
+                Role ENUM('student', 'coach', 'admin') NOT NULL,
+                FullName VARCHAR(100),
+                PhoneNumber VARCHAR(15),
+                CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
+
+-- Students Tablosu
+            CREATE TABLE IF NOT EXISTS students (
+                                                    StudentID BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                                    UserID BIGINT NOT NULL,
+                                                    StudySchedule TEXT,
+                                                    FOREIGN KEY (UserID) REFERENCES users(UserID) ON DELETE CASCADE
+                );
+
+-- Coaches Tablosu
+            CREATE TABLE IF NOT EXISTS coaches (
+                                                   CoachID BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                                   UserID BIGINT NOT NULL,
+                                                   Biography TEXT,
+                                                   EducationDetails TEXT,
+                                                   Expertise VARCHAR(255),
+                Availability TEXT,
+                Rating FLOAT DEFAULT 0.0,
+                FOREIGN KEY (UserID) REFERENCES users(UserID) ON DELETE CASCADE
+                );
+
+-- Admins Tablosu
+            CREATE TABLE IF NOT EXISTS admins (
+                                                  AdminID BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                                  UserID BIGINT NOT NULL,
+                                                  FOREIGN KEY (UserID) REFERENCES users(UserID) ON DELETE CASCADE
+                );
+
+-- Bookings Tablosu
+            CREATE TABLE IF NOT EXISTS bookings (
+                                                    BookingID BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                                    StudentID BIGINT NOT NULL,
+                                                    CoachID BIGINT NOT NULL,
+                                                    BookingDate DATETIME NOT NULL,
+                                                    Status ENUM('pending', 'confirmed', 'cancelled') DEFAULT 'pending',
+                FOREIGN KEY (StudentID) REFERENCES students(StudentID) ON DELETE CASCADE,
+                FOREIGN KEY (CoachID) REFERENCES coaches(CoachID) ON DELETE CASCADE
+                );
+
+-- Chats Tablosu
+            CREATE TABLE IF NOT EXISTS chats (
+                                                 ChatID BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                                 BookingID BIGINT NOT NULL,
+                                                 SenderID BIGINT NOT NULL,
+                                                 Message TEXT NOT NULL,
+                                                 SentAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                                 FOREIGN KEY (BookingID) REFERENCES bookings(BookingID) ON DELETE CASCADE,
+                FOREIGN KEY (SenderID) REFERENCES users(UserID) ON DELETE CASCADE
+                );
+
+-- Content Management Tablosu
+            CREATE TABLE IF NOT EXISTS contentManagement (
+                                                             ContentID BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                                             AdminID BIGINT NOT NULL,
+                                                             ContentType ENUM('announcement', 'resource') NOT NULL,
+                ContentDetails TEXT NOT NULL,
+                CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (AdminID) REFERENCES admins(AdminID) ON DELETE CASCADE
+                );
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>
